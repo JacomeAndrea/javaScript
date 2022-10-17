@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<h1>¡Adivina el número que ha generado la página entre el 1 y el 1000!</h1>
+<script>
+  let random = Math.floor(Math.random() * 1000) + 1;
+  let contador=0;
+  do {
+    let numero = prompt("Escribe un número: ");
+    if (numero==random) {
+      console.log("¡Correcto! el número es: " + numero)
+      contador++;
+    } else {
+      alert ("Incorrecto, sigue intentándolo.")
+      alert("Número introducido: " + numero);
+      if (numero<random) {
+        alert ("El número a adivinar es mayor que " + numero);
+      } else {
+        alert ("El número a adivinar es mayor que " + numero);
+      }
+      contador++;
+    }
+    window.confirm("¿Desea continuar?");
+
+  } while (numero>0 && numero<1000 && confirm("Aceptar"));
+
+  console.log("Número de intentos total: " + contador);
+  console.log("¡Hasta la próxima!");
+
+
+</script>
+</body>
+</html>

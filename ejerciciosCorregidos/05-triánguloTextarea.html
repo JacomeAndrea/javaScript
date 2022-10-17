@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triángulo dentro de textarea</title>
+    <style>
+        textarea {
+            background-color: hsl(160, 100%, 75%);
+            color: hsl(0, 0%, 100%);
+        }
+    </style>
+</head>
+<body>
+<label for="pantalla">
+    <textarea id="pantalla" cols="30" rows="10"></textarea>
+</label>
+
+<script>
+    let texto="";
+    let numero;
+    do {
+        numero=prompt("Escribe el número de asteriscos que deseas (debe ser un número entero");
+
+    } while (isNaN((Number(numero)) || numero<=0)); //si no es un número o es 0 o menor
+    for (let i=0; i< numero; i++) {
+        for (let j=0; i>=j; j++) {
+            texto+="* ";
+        }
+        texto+="\n";
+    }
+    document.getElementById("pantalla").value=texto;
+    //document.getElementById("pantalla").cols=columna;
+    //document.getElementById("pantalla").rows=filas;
+
+
+
+</script>
+</body>
+</html>

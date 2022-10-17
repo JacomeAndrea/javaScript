@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+<script>
+  var inicio = new Date();
+  var fin= new Date(2022,11,21);
+  var transcurso = fin.getTime()-inicio.getTime();
+  alert("Tiempo en milisegundos que quedan hasta el 21/12/2022 desde el 21/11/2021: "+transcurso);
+  var segundos= transcurso/1000;
+  var minutos= segundos/60;
+  var horas = minutos/horas;
+  var dias = horas/dias;
+  alert("Son "+segundos+" segundos");
+  alert("Son "+minutos+" minutos");
+  alert("Son "+horas+" horas");
+  alert("Son "+dias+" días");
+
+</script>
+</body>
+</html>
