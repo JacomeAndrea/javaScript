@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date</title>
+</head>
+<body>
+<h1>Trabajando con fechas</h1>
+<script>
+  let fechaActual=new Date();
+  document.write("Fecha actual:&nbsp;"+ fechaActual);
+  document.write("<br>");
+  function getInformationDates (fechaActual) {
+      let diames = (fechaActual.getDate());  //devuelve el dia(1-31).
+      let ano = fechaActual.getFullYear();  //devuelve el año(4 dígitos).
+      let hora = fechaActual.getHours();    //devuelve la hora(0-23).
+      let min = fechaActual.getMinutes();   //devuelve los minutos(0-59).
+      if ((min >= 0) && (min < 10)) {    //Algoritmo para añadir un cero cuando el min tiene 1 cifra.
+          min = "0" + min;
+      }
+      return "Hoy es día "+ diames + ". Son las " + hora + " : " + min + " h. Y estamos en el año " + ano;
+  }
+  document.write("Son las:&nbsp;" + fechaActual.getHours()+"&nbsp;:&nbsp;"+fechaActual.getMinutes()+"&nbsp;h.<br>");
+  document.write(getInformationDates(fechaActual)+"<br>");
+  //¿Cómo crear un número random?
+  randomNum=Math.random()*(1000-1)+1;//Math.random() * (max - min) + min;
+
+  function randomDate(start, end) {
+      return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
+
+  let fechaAleatoria= randomDate(1,1000);
+
+  function diferenceDates(fechaActual,fechaAleatoria) {
+      return fechaActual-fechaAleatoria;
+  }
+
+  function format12h (fechaActual) {
+        return fechaActual.getHours()-12;
+  }
+
+  let diaSemana = fechaActual.getDay(); //devuelve el dia de la semana.(0-6).
+
+  function  diasSemana (diaSemana) {
+      let dia;
+      switch (diaSemana) {
+          case 0:
+              dia = "Domingo";
+              break;
+          case 1:
+              dia = "Lunes";
+              break;
+          case 2:
+              dia = "Martes";
+              break;
+          case 3:
+              dia = "Miercoles";
+              break;
+          case 4:
+              dia = "Jueves";
+              break;
+          case 5:
+              dia = "Viernes";
+              break;
+          case 6:
+              dia = "Sabado";
+              break;
+      }
+      return dia;
+  }
+
+  document.write("Hoy es " + diasSemana(diaSemana));
+
+  let diaMes = fechaActual.getMonth() + 1; // //getMonth() devuelve el mes (0-11).
+  function diasMes (diaMes) {
+      let mes;
+        switch (diaMes) {
+            case 1:
+                mes = "Enero";
+                break;
+            case 2:
+                mes = "Febrero";
+                break;
+            case 3:
+                mes = "Marzo";
+                break;
+            case 4:
+                mes = "Abril";
+                break;
+            case 5:
+                mes = "Mayo";
+                break;
+            case 6:
+                mes = "Junio";
+                break;
+            case 7:
+                mes = "Julio";
+                break;
+            case 8:
+                mes = "Agosto";
+                break;
+            case 9:
+                mes = "Septiembre";
+                break;
+            case 10:
+                mes = "Octubre";
+                break;
+            case 11:
+                mes = "Noviembre";
+                break;
+            case 12:
+                mes = "Diciembre";
+                break;
+        }
+      return mes;
+  }
+
+  document.write(" Estamos en el mes de: " + diasMes(diaMes));
+  document.write("Diferencia entre " + fechaActual + " y " + fechaAleatoria + diferenceDates(fechaActual,fechaAleatoria));
+  document.write("Formato 12h: "+ format12h(fechaActual));
+
+</script>
+</body>
+</html>
