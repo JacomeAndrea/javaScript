@@ -1,40 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <style>
-
-  </style>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04</title>
 </head>
 <body>
-<h1>¡Adivina el número que ha generado la página entre el 1 y el 1000!</h1>
-<script>
-  let random = Math.floor(Math.random() * 1000) + 1;
-  let contador=0;
-  do {
-    let numero = prompt("Escribe un número: ");
-    if (numero==random) {
-      console.log("¡Correcto! el número es: " + numero)
-      contador++;
-    } else {
-      alert ("Incorrecto, sigue intentándolo.")
-      alert("Número introducido: " + numero);
-      if (numero<random) {
-        alert ("El número a adivinar es mayor que " + numero);
-      } else {
-        alert ("El número a adivinar es mayor que " + numero);
-      }
-      contador++;
-    }
-    window.confirm("¿Desea continuar?");
+ <h1>¡Adivina el número que estoy pensando!</h1>
+  <script>
 
-  } while (numero>0 && numero<1000 && confirm("Aceptar"));
+    let numero, n;
+    let salir=false;
+    let volver;
+    do {
+      contador=0;
+      numero = parseInt(Math.random() * 1000) + 1;
+      do {
+        do{
+          volver=false;
+          n = prompt("¿Qué número del 1 al 1000 crees que he pensado?");
+          if(n==null) salir=true;
+          else if(isNaN(n) || n<0 || n>1000){
+            alert("Número no válido");
+            volver=true;
+          }
+        }while(salir===false && volver===true);
 
-  console.log("Número de intentos total: " + contador);
-  console.log("¡Hasta la próxima!");
+        contador++;
+        if(salir===false) {
+          if (numero > n) {
+            alert("Mi numero es mayor")
+          }
+          else if (numero < n) {
+            alert("Mi numero es menor")
+          }
+        }
+      } while (salir===false && n !== numero);
 
+      if(salir===false)
+        alert("¡Acertaste! Intentos: "+contador);
+    } while(salir===false && confirm("¿Quieres jugar de nuevo?"));
 
-</script>
+    if(salir) {
+      document.write("<h1>Se canceló la partida</h1>");
+    } else document.write("<h1>Gracias por jugar</h1>");
+  </script>
 </body>
 </html>
