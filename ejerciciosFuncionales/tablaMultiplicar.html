@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de multiplicar</title>
+</head>
+<body>
+<h1>Tabla de multiplicar</h1>
+<script>
+  let numero=prompt("Escribe un número");
+  document.write("<table>");
+  for (let i =0; i<=10; i++) {
+    document.write("<tr>")
+    document.write("<td>"+numero+" x "+ i +"</td>");
+    document.write("<td> = " + (numero*i)+"</td>");
+    document.write("</tr>")
+  }
+  document.write("</table>");
+
+</script>
+</body>
+</html>
