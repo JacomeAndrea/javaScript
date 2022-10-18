@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let texto=prompt("Escriba el texto que desea cifrar");
+    let clave;
+    let frasecifrada="";
+    do {
+        clave=prompt("Escriba la clave (un número entero)");
+        if(isNaN(Number(clave))){
+            alert("No has escrito un número");
+        }
+    }while(isNaN(Number(clave)));
+
+    clave=parseInt(clave); //Si hay decimales desaparecen;
+    for(let letra of texto){
+
+        let cifra=letra.charCodeAt(letra)+clave; //Convertimos letra a Unicode + clave -> E+1=F; s+2=u;
+        //document.write(String.fromCharCode(cifra));
+        frasecifrada=frasecifrada + String.fromCharCode(cifra); //convertimos de unicode a string
+    }
+    alert(frasecifrada);
+</script>
+</body>
+</html>
