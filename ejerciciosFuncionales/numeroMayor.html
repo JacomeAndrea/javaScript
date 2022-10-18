@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mayor número</title>
+</head>
+<body>
+<h1>¡Escribe tres números y te diré cuál es el mayor!</h1>
+<script>
+  let num1=prompt("Primer número:");
+  let num2=prompt("Segundo número;");
+  let num3=prompt("Tercer número");
+
+  function numMax(num1, num2, num3) {
+    let max;
+    if (num1>num2 && num1>num3) {
+      max=num1;
+    } else if (num2>num1 && num2>num3){
+      max=num2;
+    } else {
+      max=num3;
+    }
+    return max;
+  }
+  document.write("El mayor es: "+numMax(num1,num2,num3));
+
+</script>
+</body>
+</html>

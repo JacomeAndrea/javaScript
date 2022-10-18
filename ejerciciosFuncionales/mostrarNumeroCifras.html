@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cifras</title>
+</head>
+<body>
+<h1>Escribe un número y te diré las cigras que tiene</h1> <!--en proceso-->
+
+<script>
+  let numeros=2;
+  do {
+    numeros=prompt("Escribe un número");
+  } while (isNaN(numeros))
+
+  parseInt(numeros); //Quitamos decimales
+  let cifras=numeros.toString().length; //convertir num a string y sacar la longitud
+
+  document.write("<TABLE border=1>");
+  document.write("<TR bgcolor='cyan'>");
+  document.write("<TH><B>EL NÚMERO INTRODUCIDO ES: </B>" + numeros + "</TH></TR>");
+  document.write("<TR><TD>");
+  document.write("<B><I>Numero de cifras : " + cifras + "</B></I></TD></TR>");
+  document.write("</TABLE></CENTER>");
+
+</script>
+</body>
+</html>
