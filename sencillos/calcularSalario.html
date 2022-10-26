@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>02</title>
+</head>
+<body>
+<h1>Datos personales</h1>
+<form name="formulario">
+        <p>Nombre</p>
+    <label for="nombre"></label><input type="text" name="nombre" id="nombre"/>
+        <p>Apellidos</p>
+    <label for="apellidos"></label><input type="text" name="apellidos" id="apellidos"/>
+        <p>Salario</p>
+    <label for="salario"></label><input type="number" name="salario" id="salario"/>
+        <p>Edad</p>
+    <label for="edad"></label><input type="number" name="edad" id="edad"/>
+    <button type="submit" onclick="enviar_formulario()" id="enviar">Envia tu informacion</button>
+</form>
+
+<script>
+
+
+    function calcularSalario (salario,edad) {
+        if (salario<=2000 && salario>=1000) {
+            if (edad > 45) {
+                salario*=0.03;
+            } else if (edad<=45) {
+                salario*=10
+            }
+        } else if (salario<1000) {
+            if (edad<30) {
+                salario=1100;
+            } else  if (edad>=30 && edad<=45) {
+                salario*=0.03
+            } else if (edad>45) {
+                salario*=0.15
+            }
+        }
+        return salario;
+    }
+
+    function enviar_formulario(){
+        let nombre = document.getElementById("nombre").value;
+        let apellidos = document.getElementById("apellidos").value;
+        let salario = document.getElementById("salario").value;
+        let edad = document.getElementById("edad").value;
+        alert("Formulario enviado desde Java Script");
+        document.formulario.submit();
+        salario = calcularSalario(salario,edad);
+
+        /*DOS FORMAS DE IMPRIMIR RESULTADOS*/
+
+            /*let resu = '<p>Nombre:&nbsp;'+ nombre + '</p><br>';
+            resu+='<p>Apellidos:&nbsp;' + apellidos + '</p><br>';
+            resu+='<p>Edad:&nbsp;' + edad + '</p><br>';
+            resu+='<p>Salario:&nbsp;' + salario + '</p>';
+
+            document.write(resu);*/
+
+        document.write("Nombre:&nbsp;"+nombre);
+        document.write("<br><br>Apellidos:&nbsp;"+apellidos);
+        document.write("<br><br>Edad:&nbsp;"+edad);
+        document.write("<br><br>Salario correspondiente:&nbsp;"+salario);
+
+
+    }
+
+</script>
+</body>
+</html>

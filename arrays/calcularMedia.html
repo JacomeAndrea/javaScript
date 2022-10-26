@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicio 01</title>
+</head>
+<body>
+<!--
+prompt pedir numero hasta que usuario ponga 0 ->mostrar media
+no numero -> pedir de nuevo
+si cancela-> termina programa (no muestra media)
+
+-->
+
+<script>
+    let array=[];
+    let numero;
+    let total=0;
+    do{
+        numero=prompt("Escribe el siguiente número (escribe el cero para terminar)");
+        if(numero!=null){ //si ha escrito algo
+            numero=Number(numero); //convertimos en número
+
+            if(!isNaN(numero)){ //si es un número
+                if(numero!==0){ //y no es 0
+                    array.push(numero);
+                } else {
+                    break;
+                }
+            } else{
+                alert("No has escrito un número");
+            }
+        }
+    } while(numero!=null && (!isNaN(numero) || numero!==0)); //mientras hayas escrito algo y además (no sea cero y sea un número)
+
+    if(numero==null){ //pulsa cancelar
+        document.write("<p>El usuario canceló la operación</p>");
+    }
+    else if(array.length>0 && !isNaN(numero)){ //array.length > 0 y es un número
+        for(let n of array){
+            total+=n;
+        }
+        document.write(`<p>La media es ${total/array.length}</p>`);
+    }
+
+
+</script>
+</body>
+</html>

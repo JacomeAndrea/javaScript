@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>01</title>
+</head>
+<body>
+/*- Se trata de pedir al usuario un número a través de una ventana de entrada. Comprobar si
+es un número. El resultado mostrarlo con una ventana emergente.*/
+<script>
+  let numero = parseInt(prompt("Escriba un número: "));
+  if (isNaN (numero) || (numero==="") || (numero==null)) {
+    alert("Debe escribir un número");
+  } else {
+      alert("Correcto. Es un número");
+  }
+
+</script>
+</body>
+</html>

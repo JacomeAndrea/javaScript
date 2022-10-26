@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cifrado César en un Array</title>
+</head>
+<body>
+  <script>
+    let texto;
+    const numeros="0123456789";
+
+    do {
+      texto = prompt("Escribe un texto (debe contener números)");
+      contieneNumeros(texto);
+    } while (false);
+
+    function contieneNumeros(texto){
+      for(let i=0; i<texto.length; i++){
+        if (numeros.indexOf(texto.charAt(i),0)!==-1){
+          return true;
+        }
+      }
+      return false;
+    }
+
+    //convertir String en Array
+    let arrayTexto = Array.from(texto);
+
+    let clave;
+    do {
+      clave=prompt("Escribe clave numérica: ")
+    } while (isNaN(clave) || clave==null || clave==="")
+
+    clave=parseInt(clave); //desaparecen decimales
+    let arrayClave = Array.from(clave); //convertimos clave en array
+    let uniCode=[];
+    let arrayCifrado=[];
+    for (let letra=0; letra<arrayTexto.length; letra++) {
+      uniCode=arrayTexto[letra].charCodeAt(letra)+arrayClave;
+      arrayCifrado=arrayCifrado[letra]+String.fromCharCode(uniCode);
+    }
+
+    document.write(arrayCifrado);
+
+
+
+
+
+  </script>
+</body>
+</html>

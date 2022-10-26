@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Mayor de edad</title>
+    <meta charset="utf-8"/>
+    <h1>Datos personales</h1>
+    <form onsubmit="mostrarDatos()">
+        <label>Día de nacimiento<input type="number" min="1" id="dia"/></label><br><br>
+        <label>Mes de nacimiento<input type="number" min="1" max="12" id="mes"/></label><br><br>
+        <label>Año de nacimiento<input type="number" min="1920" max="2022" id="ano"/></label><br><br>
+        <button id="mostrar">Enviar</button>
+    </form>
+</head>
+<body>
+<script>
+    function mostrarDatos() {
+
+        //Recogemos datos
+        let day_nac = document.getElementById("dia").value;
+        let month_nac = document.getElementById("mes").value;
+        let age_nac = document.getElementById("ano").value;
+        //Creamos variables
+        let fec_nac = new Date(age_nac, (month_nac-1), day_nac);
+        let fec_actual = new Date();
+        let transcurso = fec_actual.getTime() - fec_nac.getTime();
+        let segundos = transcurso / 1000;
+        let minutos = segundos / 60;
+        let horas = minutos / 60;
+        let dias = horas / 24;
+        let anos = dias/365;
+        //Imprimimos
+        document.write("<br>Fecha actual:&nbsp;" + fec_actual);
+        document.write("<br>Tu fecha de nacimiento:&nbsp;" + fec_nac);
+        document.write("<br>Transcurso en milisegundos entre&nbsp;" + fec_actual + "&nbsp;y&nbsp;" + fec_nac + "&nbsp;=&nbsp;" + transcurso);
+        document.write("<br>Han pasado&nbsp;" + Math.round(anos) + "&nbsp;años&nbsp;" + Math.round(dias) + "&nbsp;días,&nbsp;" + Math.round(horas) + "&nbsp;horas,&nbsp;" + Math.round(minutos) + "&nbsp;minutos y&nbsp;" + Math.round(segundos) + "&nbsp;segundos.")
+        document.write("<br>Tiempo en milisegundos que quedan hasta hoy: " + transcurso +"<br>");
+
+
+        function mayorEdadAndrea (anos) {
+            return Math.round(anos) >= 18;
+        }
+    //FUNCIÓN DE INTERNET
+        /*function mayorEdad(fec_actual, fec_nac) {
+            let edad = fec_actual.getFullYear() - fec_nac.getFullYear();
+            let diferenciaMeses = fec_actual.getMonth() - fec_nac.getMonth();
+            //chequeamos si estamos en algún mes anterior al pasado por parámetro
+            // si el día que recibimos por parámetro es mayor que el día actual
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && fec_actual.getDate() < fec_nac.getDate())) {
+                edad--
+            }
+            return edad >= 18; //true si es mayor de edad
+        }*/
+
+        //Llamamos a la función
+        if (mayorEdadAndrea(anos)) {
+            document.write("<br>Eres mayor de edad")
+        } else {
+            document.write("<br>Eres menor de edad");
+        }
+    }
+
+</script>
+</body>
+</html>

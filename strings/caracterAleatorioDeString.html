@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ejercicio 02</title>
+</head>
+<body>
+<!--
+pedir prompt frase en textarea
+button: ver -> mostrar en otro textarea un carácter aleatorio de la frase escrita
+button: terminar -> el programa finaliza
+
+-->
+<!--devuelve siempre el primer caracter del string que introduzca el usuario-->
+<div class="usuario">
+  <label>Escribe una frase:&nbsp;<textarea id="usuario-textarea"></textarea></label>
+  <br><br>
+  <button type="button" onclick="buttonVer()" name="ver">Ver</button>
+  <button type="button" onclick="buttonTerminar()" name="terminar">Terminar</button>
+</div>
+
+<div class="respuesta">
+  <p><label>Carácter generado aleatorio:&nbsp;<textarea id="respuesta-textarea"></textarea></label>
+</div>
+
+
+<script>
+  let frase;
+
+  function buttonVer () {
+    frase= (document.getElementById("usuario-textarea").value);
+
+    if (frase!=null && frase!=='') {
+      document.getElementById("respuesta-textarea").value=frase.charAt(Math.floor(Math.random() * frase.length));
+
+    } else {
+      alert("Escribe una frase");
+    }
+  }
+
+  function buttonTerminar () {
+    alert("Fin del programa");
+  }
+
+
+
+
+</script>
+</body>
+</html>

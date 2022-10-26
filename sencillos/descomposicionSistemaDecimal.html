@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sistema decimal</title>
+</head>
+<body>
+<h1>Escribe un número y lo descompondré en unidades</h1>
+<script>
+    let numero=prompt("Escribe un número largo:");
+
+    if (numero === "" || isNaN(numero) || numero===null) {
+        alert("Escribe un número válido por favor");
+    } else {
+        parseInt(numero);
+        document.write("Descomposición de unidades de:&nbsp;"+numero+"&nbsp;<br>");
+        let length=numero.toString().length;
+        let x=length;
+
+        for (let i=0; i<length; i++) {
+            if (x===8) {
+                document.write("DMi:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            } else if (x===7) {
+                document.write("UMi:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }else if (x===6) {
+                document.write("CM:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }else if (x===5) {
+                document.write("DM:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }else if (x===4) {
+                document.write("UM:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }else if (x===3) {
+                document.write("C:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }else if (x===2) {
+                document.write("D:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }else if (x===1) {
+                document.write("U:&nbsp;"+numero.charAt(i)+"<br>");
+                x--;
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
