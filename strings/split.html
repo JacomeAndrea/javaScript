@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Usando Split</title>
+</head>
+<body>
+<script>
+    let mensaje = 'Soy un tipo feliz y afortunado';
+
+    function dividirStringPorEspacio (mensaje) { //["Soy", "un", "tipo", "feliz", "y", "afortunado"]
+        return mensaje.split(' ');
+    }
+    console.log(dividirStringPorEspacio(mensaje));
+
+    function dividirStringPorLetra (mensaje) { //["S", "o", "y", " ", "u", "n", " ", "t", "i", "p", "o", " ","f", "e", "l", "i", "z", " ", "y", " ", "a", "f", "o", "r", "t", "u", "n", "a", "d", "o"]
+        return mensaje.split('');
+    }
+    console.log(dividirStringPorLetra(mensaje));
+
+
+    function usandoLimite (mensaje) { // ["Soy", "un", "tipo", "feliz"]
+        return mensaje.split(' ', 4);
+    }
+    console.log(usandoLimite(mensaje));
+
+</script>
+</body>
+</html>
